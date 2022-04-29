@@ -1,8 +1,21 @@
 body {
-    margin: 0;
-    padding: 0%;
+    animation: animacao 20s infinite;
 }
 
-.login-box {
-    margin-top: 20vh;
+@keyframes animacao {
+    0% {
+        background-color: aqua;
+    }
+    25% {
+        background-color: blue;
+    }
+    50% {
+        background-color: midnightblue;
+    }
+    75% {
+        background-color: blue;
+    }
+    100% {
+        background-color: aqua;
+    }
 }
