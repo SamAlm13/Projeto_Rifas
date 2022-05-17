@@ -1,4 +1,4 @@
-$(document).realy(function() {
+$(document).ready(function() {
 
 
     $('.nav-link').click(function(e) {
