@@ -4,14 +4,14 @@
             <div class="card-header">
                 <div class="card-title">
                     <div class="row">
-                        <div class="col-12-col-md-10">
+                        <div class="col-12 col-md-10">
                             <h4 class="text-dark">
                                 Gerenciar Tipos de Acesso
                             </h4>
                         </div>
                         <div class="col-12 col-md-2">
-                            <button class="btn btn-success btn-block btn-new">
-                                <i class="fa-solid fa-paper-plane"></i> Adicionar
+                            <button class="btn btn-warning btn-block btn-new">
+                                <i class="fa-solid fa-circle-plus"></i> Adicionar
                             </button>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                                 <tr>
                                     <th scope="col" class="text-center">ID</th>
                                     <th scope="col" class="text-center">NOME</th>
-                                    <th scope="col" class="text-center">AÇOES</th>
+                                    <th scope="col" class="text-center">AÇÕES</th>
                                 </tr>
                             </thead>
                         </table>
@@ -33,6 +33,7 @@
         </div>
     </div>
 </div>
+
 <div id="modal-tipo" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
@@ -46,16 +47,17 @@
                 <p>Content</p>
             </div>
             <div class="modal-footer">
-                <button id="close" class="btn btn-secondary"><i class="bx bxs-x-circle"></i> Fechar</button>
-                <button class="btn btn-success btn-primary btn-save"><i class="bx bxs-save"></i> Salvar</button>
+                <button id="close" class="btn btn-secondary"><i class='bx bxs-x-circle'></i> Fechar</button>
+                <button class="btn btn-success btn-primary btn-save"><i class='bx bxs-save' ></i> Salvar</button>
             </div>
         </div>
     </div>
 </div>
 
-<script src="../controle/new-tipo.js"></script>
-<script src="../controle/save-tipo.js"></script>
-<script src="../controle/list-tipo.js"></script>
-<script src="../controle/view-tipo.js"></script>
-<script src="../controle/edit-tipo.js"></script>
-<script src="../controle/delete-tipo.js"></script>
+
+<script src="src/tipo/controle/new-tipo.js"></script>
+<script src="src/tipo/controle/save-tipo.js"></script>
+<script src="src/tipo/controle/list-tipo.js"></script>
+<script src="src/tipo/controle/view-tipo.js"></script>
+<script src="src/tipo/controle/edit-tipo.js"></script>
+<script src="src/tipo/controle/delete-tipo.js"></script>
