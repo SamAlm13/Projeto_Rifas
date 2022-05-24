@@ -27,7 +27,7 @@ $(document).ready(function() {
                     $('#modal-tipo').modal('show')
                 } else {
                     Swal.fire({
-                        title: 'e-Rifa',
+                        title: 'TOP-RIFAS',
                         text: dado.mensagem,
                         type: dado.tipo,
                         confirmButtonText: 'OK'

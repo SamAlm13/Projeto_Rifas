@@ -23,11 +23,12 @@ $(document).ready(function() {
                         $('#NOME').val(dado.dados.NOME)
                         $('#ID').val(dado.dados.ID)
                     })
+                    $('.btn-save').removeAttr('data-operation', 'insert')
                     $('.btn-save').show()
                     $('#modal-tipo').modal('show')
                 } else {
                     Swal.fire({
-                        title: 'e-Rifa',
+                        title: 'TOP-RIFAS',
                         text: dado.mensagem,
                         type: dado.tipo,
                         confirmButtonText: 'OK'
