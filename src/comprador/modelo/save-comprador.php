@@ -4,7 +4,7 @@ include('../../conexao/conn.php');
 
 $requestData = $_REQUEST;
 
-if(empty($requestData['NOME'])){
+if(empty($requestData['NOME'],)){
     $dados = array(
         "tipo" => 'error',
         "mensagem" => 'Existe(m) campo(s) obrigatório(s) não preenchido(s).'
@@ -15,10 +15,11 @@ if(empty($requestData['NOME'])){
 
     if($operacao == 'insert'){
         try{
-            $stmt = $pdo->prepare('INSERT INTO TIPO (NOME) VALUES (:a)');
+            $stmt = $pdo->prepare('INSERT INTO COMPRADOR (NOME, CELULAR) VALUES (:a, :b)');
             $stmt->execute(array(
                 // ':a' => utf8_decode($requestData['NOME'])
-                ':a' => $requestData['NOME']
+                ':a' => $requestData['NOME'],
+                ':b' => $requestData['CELULAR']
             ));
             $dados = array(
                 "tipo" => 'success',
@@ -32,11 +33,12 @@ if(empty($requestData['NOME'])){
         }
     } else {
         try{
-            $stmt = $pdo->prepare('UPDATE TIPO SET NOME = :a WHERE ID = :id');
+            $stmt = $pdo->prepare('UPDATE COMPRADOR SET NOME = :a, CELULAR = :b WHERE ID = :id');
             $stmt->execute(array(
                 ':id' => $ID,
                 // ':a' => utf8_decode($requestData['NOME'])
-                ':a' => $requestData['NOME']
+                ':a' => $requestData['NOME'],
+                ':b' => $requestData['CELULAR']
             ));
             $dados = array(
                 "tipo" => 'success',

@@ -1,9 +1,16 @@
 <?php
 
-$hostname = "sql102.epizy.com";
-$dbname = "epiz_31454090_rifas";
-$username = "epiz_31454090";
-$password = "qsG94BDEfCk";
+// Conexão Online
+// $hostname = "sql102.epizy.com";
+// $dbname = "epiz_31454090_rifas";
+// $username = "epiz_31454090";
+// $password = "qsG94BDEfCk";
+
+// Conexão Off-line
+$hostname = "localhost";
+$dbname = "rifa";
+$username = "root";
+$password = "";
 
 try{
     $pdo = new PDO('mysql:host='.$hostname.';dbname='.$dbname, $username, $password);
