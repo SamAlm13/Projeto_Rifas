@@ -1,21 +1,7 @@
 body {
-    animation: animacao 20s infinite;
+    background-color: #2f2f2f;
+}
+.centralizar{
+    padding-top: 20vh;
 }
 
-@keyframes animacao {
-    0% {
-        background-color: aqua;
-    }
-    25% {
-        background-color: blue;
-    }
-    50% {
-        background-color: midnightblue;
-    }
-    75% {
-        background-color: blue;
-    }
-    100% {
-        background-color: aqua;
-    }
-}
