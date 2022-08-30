@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: sql102.byetcluster.com
--- Tempo de geração: 21/06/2022 às 09:40
--- Versão do servidor: 10.3.27-MariaDB
--- Versão do PHP: 7.2.22
+-- Host: 127.0.0.1
+-- Tempo de geração: 30-Ago-2022 às 15:40
+-- Versão do servidor: 10.4.20-MariaDB
+-- versão do PHP: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,28 +18,35 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `epiz_31454090_rifas`
+-- Banco de dados: `rifa`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `COMPRADOR`
+-- Estrutura da tabela `comprador`
 --
 
-CREATE TABLE `COMPRADOR` (
+CREATE TABLE `comprador` (
   `ID` int(11) NOT NULL,
   `NOME` varchar(100) NOT NULL,
   `CELULAR` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `comprador`
+--
+
+INSERT INTO `comprador` (`ID`, `NOME`, `CELULAR`) VALUES
+(1, 'Samuel', 996411339);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `NUMEROS`
+-- Estrutura da tabela `numeros`
 --
 
-CREATE TABLE `NUMEROS` (
+CREATE TABLE `numeros` (
   `ID` bigint(20) NOT NULL,
   `NUMERO` int(11) NOT NULL,
   `PROMOCAO_ID` int(11) NOT NULL,
@@ -50,10 +56,10 @@ CREATE TABLE `NUMEROS` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `NUMEROS_COMPRADOS`
+-- Estrutura da tabela `numeros_comprados`
 --
 
-CREATE TABLE `NUMEROS_COMPRADOS` (
+CREATE TABLE `numeros_comprados` (
   `COMPRADOR_ID` int(11) NOT NULL,
   `NUMEROS_ID` bigint(20) NOT NULL,
   `VENDA_ID` int(11) NOT NULL
@@ -62,10 +68,10 @@ CREATE TABLE `NUMEROS_COMPRADOS` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `PREMIO`
+-- Estrutura da tabela `premio`
 --
 
-CREATE TABLE `PREMIO` (
+CREATE TABLE `premio` (
   `ID` int(11) NOT NULL,
   `NOME` varchar(45) NOT NULL,
   `DESCRICAO` varchar(255) NOT NULL,
@@ -76,10 +82,10 @@ CREATE TABLE `PREMIO` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `PROMOCAO`
+-- Estrutura da tabela `promocao`
 --
 
-CREATE TABLE `PROMOCAO` (
+CREATE TABLE `promocao` (
   `ID` int(11) NOT NULL,
   `TITULO` varchar(45) NOT NULL,
   `DESCRICAO` varchar(255) DEFAULT NULL,
@@ -93,10 +99,10 @@ CREATE TABLE `PROMOCAO` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `RESULTADO`
+-- Estrutura da tabela `resultado`
 --
 
-CREATE TABLE `RESULTADO` (
+CREATE TABLE `resultado` (
   `ID` int(11) NOT NULL,
   `DATA` date NOT NULL,
   `PROMOCAO_ID` int(11) NOT NULL,
@@ -106,29 +112,30 @@ CREATE TABLE `RESULTADO` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `TIPO`
+-- Estrutura da tabela `tipo`
 --
 
-CREATE TABLE `TIPO` (
+CREATE TABLE `tipo` (
   `ID` int(11) NOT NULL,
   `NOME` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `TIPO`
+-- Extraindo dados da tabela `tipo`
 --
 
-INSERT INTO `TIPO` (`ID`, `NOME`) VALUES
-(9, 'test4'),
-(10, 'Samuel Test3');
+INSERT INTO `tipo` (`ID`, `NOME`) VALUES
+(11, 'Adiministrador'),
+(12, 'Suporte'),
+(13, 'Vendedor');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `VENDA`
+-- Estrutura da tabela `venda`
 --
 
-CREATE TABLE `VENDA` (
+CREATE TABLE `venda` (
   `ID` int(11) NOT NULL,
   `DATA_VENDA` date NOT NULL,
   `VALOR` double NOT NULL
@@ -137,10 +144,10 @@ CREATE TABLE `VENDA` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `VENDEDOR`
+-- Estrutura da tabela `vendedor`
 --
 
-CREATE TABLE `VENDEDOR` (
+CREATE TABLE `vendedor` (
   `ID` int(11) NOT NULL,
   `NOME` varchar(100) NOT NULL,
   `CELULAR` int(11) NOT NULL,
@@ -150,108 +157,115 @@ CREATE TABLE `VENDEDOR` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Índices de tabelas apagadas
+-- Extraindo dados da tabela `vendedor`
+--
+
+INSERT INTO `vendedor` (`ID`, `NOME`, `CELULAR`, `LOGIN`, `SENHA`, `TIPO_ID`) VALUES
+(1, 'Samuel', 996411339, 'Sam', '202cb962ac59075b964b07152d234b70', 13);
+
+--
+-- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `COMPRADOR`
+-- Índices para tabela `comprador`
 --
-ALTER TABLE `COMPRADOR`
+ALTER TABLE `comprador`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices de tabela `NUMEROS`
+-- Índices para tabela `numeros`
 --
-ALTER TABLE `NUMEROS`
+ALTER TABLE `numeros`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices de tabela `PREMIO`
+-- Índices para tabela `premio`
 --
-ALTER TABLE `PREMIO`
+ALTER TABLE `premio`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices de tabela `PROMOCAO`
+-- Índices para tabela `promocao`
 --
-ALTER TABLE `PROMOCAO`
+ALTER TABLE `promocao`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices de tabela `RESULTADO`
+-- Índices para tabela `resultado`
 --
-ALTER TABLE `RESULTADO`
+ALTER TABLE `resultado`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices de tabela `TIPO`
+-- Índices para tabela `tipo`
 --
-ALTER TABLE `TIPO`
+ALTER TABLE `tipo`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices de tabela `VENDA`
+-- Índices para tabela `venda`
 --
-ALTER TABLE `VENDA`
+ALTER TABLE `venda`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices de tabela `VENDEDOR`
+-- Índices para tabela `vendedor`
 --
-ALTER TABLE `VENDEDOR`
+ALTER TABLE `vendedor`
   ADD PRIMARY KEY (`ID`);
 
 --
--- AUTO_INCREMENT de tabelas apagadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `COMPRADOR`
+-- AUTO_INCREMENT de tabela `comprador`
 --
-ALTER TABLE `COMPRADOR`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `comprador`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `NUMEROS`
+-- AUTO_INCREMENT de tabela `numeros`
 --
-ALTER TABLE `NUMEROS`
+ALTER TABLE `numeros`
   MODIFY `ID` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `PREMIO`
+-- AUTO_INCREMENT de tabela `premio`
 --
-ALTER TABLE `PREMIO`
+ALTER TABLE `premio`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `PROMOCAO`
+-- AUTO_INCREMENT de tabela `promocao`
 --
-ALTER TABLE `PROMOCAO`
+ALTER TABLE `promocao`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de tabela `resultado`
+--
+ALTER TABLE `resultado`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `RESULTADO`
+-- AUTO_INCREMENT de tabela `tipo`
 --
-ALTER TABLE `RESULTADO`
+ALTER TABLE `tipo`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de tabela `venda`
+--
+ALTER TABLE `venda`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `TIPO`
+-- AUTO_INCREMENT de tabela `vendedor`
 --
-ALTER TABLE `TIPO`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT de tabela `VENDA`
---
-ALTER TABLE `VENDA`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `VENDEDOR`
---
-ALTER TABLE `VENDEDOR`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `vendedor`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
